@@ -2,9 +2,26 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Play, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
+import tradeVideo1 from "@/assets/trade-video-1.mp4";
+import tradeVideo2 from "@/assets/trade-video-2.mp4";
 
 const Videos = () => {
   const tiktokUrl = "https://vm.tiktok.com/ZMHErPSdm/";
+
+  const tradeVideos = [
+    {
+      id: 1,
+      title: "Live Trade Setup",
+      description: "Watch a real-time trade execution",
+      src: tradeVideo1,
+    },
+    {
+      id: 2,
+      title: "Trade Analysis",
+      description: "Breaking down the price action",
+      src: tradeVideo2,
+    },
+  ];
 
   return (
     <Layout>
@@ -26,11 +43,51 @@ const Videos = () => {
         </div>
       </section>
 
-      {/* TikTok Section */}
+      {/* Trade Videos Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="text-gold font-semibold text-sm tracking-[0.2em] uppercase">
+              Real Trades
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-4">
+              Live <span className="text-gradient-gold">Trade Recordings</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {tradeVideos.map((video) => (
+              <div
+                key={video.id}
+                className="bg-card border border-border rounded-lg overflow-hidden group hover:border-gold/50 transition-all duration-300"
+              >
+                <div className="aspect-[9/16] relative">
+                  <video
+                    src={video.src}
+                    controls
+                    className="w-full h-full object-cover"
+                    preload="metadata"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold text-lg">{video.title}</h3>
+                  <p className="text-muted-foreground text-sm mt-1">
+                    {video.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TikTok Section */}
+      <section className="py-20 bg-card">
+        <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-card border border-border rounded-lg p-12">
+            <div className="bg-surface border border-border rounded-lg p-12">
               <div className="w-20 h-20 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-6">
                 <Play className="w-10 h-10 text-gold" />
               </div>
@@ -45,7 +102,7 @@ const Videos = () => {
                 href={tiktokUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-background font-bold px-8 py-4 rounded-md hover:shadow-[0_0_30px_hsla(43,74%,52%,0.4)] transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-white font-bold px-8 py-4 rounded-md hover:shadow-[0_0_30px_hsla(217,91%,60%,0.4)] transition-all duration-300"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -60,38 +117,6 @@ const Videos = () => {
                 <ExternalLink className="w-4 h-4" />
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Video Placeholders */}
-      <section className="py-20 bg-card">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <span className="text-gold font-semibold text-sm tracking-[0.2em] uppercase">
-              Coming Soon
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-4">
-              More Videos <span className="text-gradient-gold">Loading</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((_, index) => (
-              <div
-                key={index}
-                className="aspect-[9/16] md:aspect-video bg-surface rounded-lg border border-border flex items-center justify-center group hover:border-gold/50 transition-all duration-300"
-              >
-                <div className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/20 transition-colors">
-                    <Play className="w-8 h-8 text-gold" />
-                  </div>
-                  <p className="text-muted-foreground text-sm">
-                    Video Coming Soon
-                  </p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
