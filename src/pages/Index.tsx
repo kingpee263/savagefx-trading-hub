@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, Users, Award } from "lucide-react";
+import { TrendingUp, Users, Award, ArrowRight, Play, ChevronDown, Zap, Target, Shield, BarChart3 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import heroBg from "@/assets/hero-bg.jpg";
 import traderPortrait from "@/assets/trader-portrait.jpg";
@@ -9,78 +9,120 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `url(${heroBg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background layers */}
+        <div className="absolute inset-0 z-0">
+          {/* Image */}
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url(${heroBg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+          {/* Overlay gradients */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background/80" />
+          {/* Glow effect */}
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gold/10 rounded-full blur-[120px]" />
         </div>
 
+        {/* Grid pattern overlay */}
+        <div 
+          className="absolute inset-0 z-[1] opacity-[0.02]"
+          style={{
+            backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
+          }}
+        />
+
         {/* Content */}
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
-            <span className="inline-block text-gold font-semibold text-sm tracking-[0.3em] uppercase mb-6">
-              #Zvichipera
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-              Master the Markets with{" "}
+        <div className="container mx-auto px-6 lg:px-8 relative z-10 pt-24">
+          <div className="max-w-5xl mx-auto">
+            {/* Badge */}
+            <div className="flex justify-center mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-sm text-muted-foreground">Accepting new members</span>
+                <span className="text-xs text-gold font-semibold tracking-wider">#ZVICHIPERA</span>
+              </div>
+            </div>
+
+            {/* Main heading */}
+            <h1 className="text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight">
+              <span className="block text-foreground">Trade with</span>
               <span className="text-gradient-gold">Savage Precision</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-              SavageFX is a Harare-based price action trader with 3+ years of
-              real market experience. Known for precision, discipline, and
-              mentorship.
+
+            {/* Subheading */}
+            <p className="text-center text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+              Join a community of disciplined traders. Learn price action mastery from 
+              a Harare-based trader with 3+ years of proven results.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
               <Link to="/contact">
-                <Button variant="hero" size="xl">
+                <button className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-gold rounded-2xl text-white font-semibold text-lg hover:shadow-gold transition-all duration-300">
                   Join VIP Signals
-                </Button>
+                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </button>
               </Link>
               <Link to="/videos">
-                <Button variant="heroOutline" size="xl">
-                  Watch Trade Videos
-                </Button>
+                <button className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-2xl text-foreground font-semibold text-lg hover:bg-white/10 transition-all duration-300">
+                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                    <Play size={14} fill="currentColor" />
+                  </div>
+                  Watch Trades
+                </button>
               </Link>
+            </div>
+
+            {/* Quick stats */}
+            <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
+              {[
+                { value: "3+", label: "Years" },
+                { value: "500+", label: "Traders" },
+                { value: "95%", label: "Success" },
+              ].map((stat, i) => (
+                <div key={i} className="text-center py-4 px-2 rounded-2xl bg-white/[0.02] border border-white/5">
+                  <div className="stat-number text-2xl md:text-3xl text-gradient-gold mb-1">{stat.value}</div>
+                  <div className="text-xs text-muted-foreground uppercase tracking-wider">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-          <div className="w-6 h-10 border-2 border-gold/50 rounded-full flex justify-center pt-2">
-            <div className="w-1.5 h-3 bg-gold rounded-full animate-pulse" />
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+          <div className="flex flex-col items-center gap-2 animate-float">
+            <span className="text-xs text-muted-foreground uppercase tracking-widest">Scroll</span>
+            <ChevronDown size={20} className="text-gold" />
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-card border-y border-border">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Features Section */}
+      <section className="py-24 relative">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: TrendingUp, value: "3+", label: "Years Experience" },
-              { icon: Users, value: "500+", label: "Traders Mentored" },
-              { icon: Award, value: "95%", label: "Success Rate" },
-            ].map((stat, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center text-center p-6 animate-fade-in-up"
-                style={{ animationDelay: `${index * 100}ms` }}
+              { icon: Zap, title: "Fast Signals", desc: "Real-time trade alerts" },
+              { icon: Target, title: "Precise Entries", desc: "Optimal entry points" },
+              { icon: Shield, title: "Risk Management", desc: "Protected capital" },
+              { icon: BarChart3, title: "Market Analysis", desc: "Daily breakdowns" },
+            ].map((feature, i) => (
+              <div 
+                key={i}
+                className="group p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-gold/20 hover:bg-white/[0.04] transition-all duration-300"
               >
-                <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mb-4">
-                  <stat.icon className="w-8 h-8 text-gold" />
+                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
+                  <feature.icon size={22} className="text-gold" />
                 </div>
-                <span className="text-4xl font-bold text-gradient-gold mb-2">
-                  {stat.value}
-                </span>
-                <span className="text-muted-foreground">{stat.label}</span>
+                <h3 className="font-semibold text-foreground mb-1">{feature.title}</h3>
+                <p className="text-sm text-muted-foreground">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -88,51 +130,76 @@ const Index = () => {
       </section>
 
       {/* About Preview Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="py-24 relative overflow-hidden">
+        {/* Background glow */}
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[150px]" />
+        
+        <div className="container mx-auto px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Image side */}
             <div className="relative">
-              <div className="aspect-[3/4] rounded-lg overflow-hidden border-2 border-gold/30 glow-gold">
+              <div className="aspect-[4/5] rounded-3xl overflow-hidden relative">
                 <img
                   src={traderPortrait}
                   alt="SavageFX Trader"
                   className="w-full h-full object-cover"
                 />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-gold text-background px-6 py-4 rounded-lg shadow-lg">
-                <span className="block text-2xl font-bold">Harare</span>
-                <span className="text-sm">Zimbabwe 🇿🇼</span>
+              
+              {/* Floating card */}
+              <div className="absolute -bottom-6 -right-6 lg:right-8 p-4 rounded-2xl glass border border-white/10">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-gold flex items-center justify-center">
+                    <MapPin size={18} className="text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">Harare</p>
+                    <p className="text-xs text-muted-foreground">Zimbabwe 🇿🇼</p>
+                  </div>
+                </div>
               </div>
+
+              {/* Decorative element */}
+              <div className="absolute -top-4 -left-4 w-24 h-24 rounded-3xl border border-gold/20" />
             </div>
-            <div className="animate-fade-in-up">
-              <span className="text-gold font-semibold text-sm tracking-[0.2em] uppercase">
-                About SavageFX
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
+
+            {/* Content side */}
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/10 mb-6">
+                <span className="text-xs font-semibold text-gold uppercase tracking-wider">About</span>
+              </div>
+              
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                 Turning Discipline Into{" "}
-                <span className="text-gradient-gold">Profit</span>
+                <span className="text-gradient-gold">Consistent Profit</span>
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                SavageFX started trading over 3 years ago. With a deep belief in
-                price action, he's helped many through signals, mentorship, and
-                discipline. His approach combines technical analysis with
-                psychological mastery.
+              
+              <p className="text-muted-foreground leading-relaxed mb-8 text-lg">
+                SavageFX started trading over 3 years ago. With a deep belief in price action, 
+                he's helped hundreds of traders through signals, mentorship, and disciplined strategies.
               </p>
-              <ul className="space-y-3 mb-8">
+
+              <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
-                  "Pure Price Action Trading",
-                  "Risk Management Focused",
-                  "Live Market Analysis",
-                  "1-on-1 Mentorship Available",
+                  "Pure Price Action",
+                  "Risk Management",
+                  "Live Analysis",
+                  "1-on-1 Mentorship",
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-gold rounded-full" />
-                    <span>{item}</span>
-                  </li>
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-gold" />
+                    <span className="text-sm text-foreground">{item}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
+
               <Link to="/about">
-                <Button variant="goldOutline">Learn More About Me</Button>
+                <button className="group inline-flex items-center gap-2 text-gold font-semibold hover:gap-4 transition-all">
+                  Learn more about me
+                  <ArrowRight size={18} />
+                </button>
               </Link>
             </div>
           </div>
@@ -140,89 +207,103 @@ const Index = () => {
       </section>
 
       {/* Services Preview */}
-      <section className="py-20 bg-card">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <span className="text-gold font-semibold text-sm tracking-[0.2em] uppercase">
-              What I Offer
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-4">
-              Premium <span className="text-gradient-gold">Services</span>
+      <section className="py-24 relative">
+        <div className="container mx-auto px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/10 mb-6">
+              <span className="text-xs font-semibold text-gold uppercase tracking-wider">Services</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              What I <span className="text-gradient-gold">Offer</span>
             </h2>
+            <p className="text-muted-foreground">
+              Comprehensive trading services designed to elevate your trading journey.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          {/* Services grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
               {
-                title: "VIP Signals",
-                description:
-                  "Daily trading signals with precise entry and exit points",
                 icon: "📊",
+                title: "VIP Signals",
+                description: "Daily trading signals with precise entry, stop loss, and take profit levels.",
+                highlight: true,
               },
               {
-                title: "1-on-1 Mentorship",
-                description:
-                  "Personal coaching sessions tailored to your level",
                 icon: "👨‍🏫",
+                title: "1-on-1 Mentorship",
+                description: "Personal coaching sessions tailored to your skill level and goals.",
               },
               {
-                title: "Chart Analysis",
-                description:
-                  "Detailed technical analysis reports on major pairs",
                 icon: "📈",
+                title: "Chart Analysis",
+                description: "Detailed technical analysis reports on major currency pairs.",
               },
               {
-                title: "Account Growth",
-                description: "Professional account management services",
                 icon: "💰",
+                title: "Account Growth",
+                description: "Professional account management for passive income generation.",
               },
-            ].map((service, index) => (
+            ].map((service, i) => (
               <div
-                key={index}
-                className="card-gradient border border-border rounded-lg p-6 hover:border-gold/50 transition-all duration-300 hover:-translate-y-2 group"
+                key={i}
+                className={`premium-card p-8 ${service.highlight ? 'lg:col-span-2' : ''}`}
               >
-                <span className="text-4xl mb-4 block">{service.icon}</span>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-gold transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  {service.description}
-                </p>
+                <div className="flex items-start gap-4">
+                  <span className="text-4xl">{service.icon}</span>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-foreground mb-2">{service.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                    {service.highlight && (
+                      <Link to="/services" className="inline-flex items-center gap-2 mt-4 text-gold font-semibold text-sm">
+                        View all services <ArrowRight size={14} />
+                      </Link>
+                    )}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
-          <div className="text-center mt-10">
+
+          <div className="text-center mt-12">
             <Link to="/services">
-              <Button variant="gold" size="lg">
-                View All Services
-              </Button>
+              <button className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-gold rounded-2xl text-white font-semibold hover:shadow-gold transition-all">
+                Explore All Services
+                <ArrowRight size={18} />
+              </button>
             </Link>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-gold/10 to-transparent" />
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-24 relative overflow-hidden">
+        {/* Background effects */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/5 to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/10 rounded-full blur-[150px]" />
+        
+        <div className="container mx-auto px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Ready to Start Your{" "}
               <span className="text-gradient-gold">Trading Journey</span>?
             </h2>
-            <p className="text-muted-foreground text-lg mb-8">
-              Join the VIP community and get access to premium signals,
-              mentorship, and exclusive trading content.
+            <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
+              Join the VIP community and get access to premium signals, mentorship, and exclusive content.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/contact">
-                <Button variant="hero" size="xl">
+                <button className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-gold rounded-2xl text-white font-semibold text-lg hover:shadow-gold transition-all duration-300">
                   Get Started Now
-                </Button>
+                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </button>
               </Link>
               <Link to="/faqs">
-                <Button variant="heroOutline" size="xl">
+                <button className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-2xl text-foreground font-semibold text-lg hover:bg-white/10 transition-all">
                   View FAQs
-                </Button>
+                </button>
               </Link>
             </div>
           </div>
@@ -231,5 +312,8 @@ const Index = () => {
     </Layout>
   );
 };
+
+// Missing import
+import { MapPin } from "lucide-react";
 
 export default Index;
