@@ -83,7 +83,7 @@ const Index = () => {
             <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
               {[
                 { value: "3+", label: "Years" },
-                { value: "500+", label: "Traders" },
+                { value: "50+", label: "Traders" },
                 { value: "95%", label: "Success" },
               ].map((stat, i) => (
                 <div key={i} className="text-center py-4 px-2 rounded-2xl bg-white/[0.02] border border-white/5">
