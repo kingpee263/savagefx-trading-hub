@@ -1,8 +1,21 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/layout/Layout";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight, MessageCircle } from "lucide-react";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
 
 const faqs = [
   {
@@ -57,90 +70,139 @@ const FAQs = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-20 bg-card">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <span className="text-gold font-semibold text-sm tracking-[0.2em] uppercase">
-              FAQs
-            </span>
-            <h1 className="text-4xl md:text-5xl font-bold mt-4">
+      <section className="pt-32 pb-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-gold/5 via-transparent to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gold/10 rounded-full blur-[150px]" />
+        
+        <div className="container mx-auto px-6 lg:px-8 relative z-10">
+          <motion.div 
+            className="text-center max-w-3xl mx-auto"
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+          >
+            <motion.div 
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 mb-6"
+              variants={fadeInUp}
+            >
+              <span className="text-sm font-semibold text-gold uppercase tracking-wider">FAQs</span>
+            </motion.div>
+            <motion.h1 
+              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight"
+              variants={fadeInUp}
+            >
               Frequently Asked{" "}
               <span className="text-gradient-gold">Questions</span>
-            </h1>
-            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            </motion.h1>
+            <motion.p 
+              className="text-lg text-muted-foreground"
+              variants={fadeInUp}
+            >
               Got questions? We've got answers. Find everything you need to know
               about trading with SavageFX.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
       {/* FAQs Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
+      <section className="py-24">
+        <div className="container mx-auto px-6 lg:px-8">
+          <motion.div 
+            className="max-w-3xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
             <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className={`bg-card border rounded-lg overflow-hidden transition-all duration-300 animate-fade-in-up ${
-                    openIndex === index ? "border-gold/50" : "border-border"
+                  className={`rounded-2xl overflow-hidden transition-all duration-300 ${
+                    openIndex === index 
+                      ? "bg-white/[0.04] border border-gold/30" 
+                      : "bg-white/[0.02] border border-white/5 hover:border-white/10"
                   }`}
-                  style={{ animationDelay: `${index * 50}ms` }}
+                  variants={fadeInUp}
                 >
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-surface/50 transition-colors"
+                    className="w-full flex items-center justify-between p-6 text-left"
                   >
-                    <span className="font-semibold pr-4">{faq.question}</span>
-                    <ChevronDown
-                      className={`w-5 h-5 text-gold flex-shrink-0 transition-transform duration-300 ${
-                        openIndex === index ? "rotate-180" : ""
-                      }`}
-                    />
+                    <span className="font-semibold text-foreground text-lg pr-4">{faq.question}</span>
+                    <motion.div
+                      animate={{ rotate: openIndex === index ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="flex-shrink-0"
+                    >
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
+                        openIndex === index ? "bg-gold/20" : "bg-white/5"
+                      }`}>
+                        <ChevronDown className={`w-5 h-5 transition-colors ${
+                          openIndex === index ? "text-gold" : "text-muted-foreground"
+                        }`} />
+                      </div>
+                    </motion.div>
                   </button>
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ${
-                      openIndex === index ? "max-h-96" : "max-h-0"
-                    }`}
-                  >
-                    <div className="px-6 pb-6 text-muted-foreground leading-relaxed">
-                      {faq.answer}
-                    </div>
-                  </div>
-                </div>
+                  <AnimatePresence>
+                    {openIndex === index && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="px-6 pb-6 text-muted-foreground leading-relaxed text-lg">
+                          {faq.answer}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Still Have Questions */}
-      <section className="py-20 bg-card">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Still Have <span className="text-gradient-gold">Questions</span>?
-          </h2>
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-            Can't find what you're looking for? Reach out directly and we'll get
-            back to you as soon as possible.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to="/contact">
-              <Button variant="gold" size="lg">
-                Contact Us
-              </Button>
-            </Link>
-            <a
-              href="https://wa.me/263715443409?text=Hey,%20I%20have%20a%20question%20about%20your%20services"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button variant="goldOutline" size="lg">
-                WhatsApp Us
-              </Button>
-            </a>
-          </div>
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/5 to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/10 rounded-full blur-[150px]" />
+        
+        <div className="container mx-auto px-6 lg:px-8 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              Still Have <span className="text-gradient-gold">Questions</span>?
+            </h2>
+            <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
+              Can't find what you're looking for? Reach out directly and we'll get
+              back to you as soon as possible.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link to="/contact">
+                <button className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-gold rounded-2xl text-white font-semibold text-lg hover:shadow-gold transition-all duration-300">
+                  Contact Us
+                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </button>
+              </Link>
+              <a
+                href="https://wa.me/263715443409?text=Hey,%20I%20have%20a%20question%20about%20your%20services"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-2xl text-foreground font-semibold text-lg hover:bg-white/10 transition-all">
+                  <MessageCircle size={20} />
+                  WhatsApp Us
+                </button>
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
     </Layout>
