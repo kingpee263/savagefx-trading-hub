@@ -5,20 +5,20 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        outline: "border border-white/10 bg-transparent hover:bg-white/5 text-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        gold: "bg-gradient-to-r from-gold-dark via-gold to-gold-light text-background font-bold hover:shadow-[0_0_30px_hsla(43,74%,52%,0.4)] hover:scale-105",
-        goldOutline: "border-2 border-gold text-gold hover:bg-gold hover:text-background",
-        hero: "bg-gradient-to-r from-gold-dark via-gold to-gold-light text-background font-bold text-base px-8 py-6 hover:shadow-[0_0_30px_hsla(43,74%,52%,0.4)] hover:scale-105 uppercase tracking-wider",
-        heroOutline: "border-2 border-gold text-gold font-bold text-base px-8 py-6 hover:bg-gold/10 uppercase tracking-wider",
+        ghost: "hover:bg-white/5 hover:text-foreground",
+        link: "text-gold underline-offset-4 hover:underline",
+        gold: "bg-gradient-gold text-white font-semibold hover:shadow-gold",
+        goldOutline: "border border-gold/50 text-gold hover:bg-gold/10",
+        hero: "bg-gradient-gold text-white font-semibold text-base px-8 py-4 hover:shadow-gold",
+        heroOutline: "border border-white/10 text-foreground font-semibold text-base px-8 py-4 hover:bg-white/5",
       },
       size: {
         default: "h-10 px-4 py-2",
