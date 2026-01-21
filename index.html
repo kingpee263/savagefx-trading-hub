@@ -7,9 +7,18 @@
     <meta name="description" content="SavageFX - Harare-based price action trader with 3+ years of experience. VIP signals, mentorship, and trading education. #Zvichipera" />
     <meta name="author" content="SavageFX" />
     <meta name="keywords" content="forex trading, price action, trading signals, forex mentorship, Zimbabwe trader, SavageFX" />
+    <meta name="theme-color" content="#05060a" />
+
+    <link rel="icon" href="/favicon.ico" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./styles.css" />
 
     <meta property="og:title" content="SavageFX | Master the Markets" />
     <meta property="og:description" content="Harare-based price action trader with 3+ years of experience. VIP signals, mentorship, and trading education." />
@@ -22,7 +31,413 @@
   </head>
 
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="SavageFX">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <span class="brand-text">
+            <span class="brand-name">SavageFX</span>
+            <span class="brand-tag">#Zvichipera</span>
+          </span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#charts">Charts</a>
+          <a href="#videos">Videos</a>
+          <a href="#testimonials">Reviews</a>
+          <a href="#faqs">FAQs</a>
+          <a class="nav-cta" href="#contact">Get Started</a>
+        </nav>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <span class="nav-toggle-lines" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="mobile-nav" id="mobileNav" hidden>
+        <div class="container mobile-nav-inner">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#charts">Charts</a>
+          <a href="#videos">Videos</a>
+          <a href="#testimonials">Reviews</a>
+          <a href="#faqs">FAQs</a>
+          <a class="nav-cta" href="#contact">Get Started</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <div class="hero-left">
+            <div class="badge reveal">
+              <span class="dot" aria-hidden="true"></span>
+              Accepting new VIP members
+            </div>
+
+            <h1 class="hero-title reveal" id="heroTitle">
+              Master price action with
+              <span class="text-gradient">Savage precision</span>
+            </h1>
+            <p class="hero-subtitle reveal">
+              Harare-based trader focused on clean structure, patience, and repeatable execution.
+              VIP signals, mentorship, and real trade breakdowns.
+            </p>
+
+            <div class="hero-actions reveal">
+              <a class="btn btn-primary" href="#contact">Join VIP / Mentorship</a>
+              <a class="btn btn-ghost" href="#charts">View Trade Setups</a>
+            </div>
+
+            <div class="hero-stats reveal" role="list">
+              <div class="stat" role="listitem">
+                <div class="stat-number">3+ yrs</div>
+                <div class="stat-label">Trading experience</div>
+              </div>
+              <div class="stat" role="listitem">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Traders mentored</div>
+              </div>
+              <div class="stat" role="listitem">
+                <div class="stat-number">PA</div>
+                <div class="stat-label">Price action focus</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-right reveal">
+            <div class="brand-card" role="img" aria-label="SavageFX brand card">
+              <div class="brand-card-top">
+                <div class="brand-card-mark">SFX</div>
+                <div class="brand-card-location">Harare, Zimbabwe</div>
+              </div>
+              <div class="brand-card-grid" aria-hidden="true"></div>
+              <div class="brand-card-note">Structure • Liquidity • Execution</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about" aria-labelledby="aboutTitle">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title reveal" id="aboutTitle">About SavageFX</h2>
+            <p class="section-subtitle reveal">A disciplined, process-first approach built for consistency.</p>
+          </header>
+
+          <div class="grid two">
+            <article class="card reveal">
+              <h3>Trading philosophy</h3>
+              <p>
+                I focus on price action, market structure, and clean execution. No noise—just a repeatable system
+                with strict risk management and a clear playbook.
+              </p>
+              <ul class="list">
+                <li>Structure + liquidity-based entries</li>
+                <li>Risk management & journaling habits</li>
+                <li>Simple rules, strict execution</li>
+              </ul>
+            </article>
+
+            <aside class="card premium reveal">
+              <h3>Quick facts</h3>
+              <div class="facts">
+                <div class="fact"><span>Location</span><b>Harare, ZW</b></div>
+                <div class="fact"><span>Style</span><b>Price Action</b></div>
+                <div class="fact"><span>Experience</span><b>3+ Years</b></div>
+                <div class="fact"><span>Mentored</span><b>50+ Traders</b></div>
+              </div>
+              <a class="btn btn-outline" href="#contact">Talk on WhatsApp</a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services" aria-labelledby="servicesTitle">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title reveal" id="servicesTitle">Services</h2>
+            <p class="section-subtitle reveal">Choose what fits your stage—signals, coaching, or a full roadmap.</p>
+          </header>
+
+          <div class="grid three">
+            <article class="card premium reveal">
+              <div class="card-top">
+                <h3>VIP Signals</h3>
+                <span class="pill">Popular</span>
+              </div>
+              <p>High-quality setups with clear entry logic, invalidation, and trade management.</p>
+              <ul class="list">
+                <li>Daily/weekly setups</li>
+                <li>Risk guidance</li>
+                <li>Market structure context</li>
+              </ul>
+              <a class="btn btn-primary" href="#contact">Join VIP</a>
+            </article>
+
+            <article class="card reveal">
+              <h3>1-on-1 Mentorship</h3>
+              <p>Build your execution: rules, psychology, and feedback—tailored to your progress.</p>
+              <ul class="list">
+                <li>Personalized plan</li>
+                <li>Review sessions</li>
+                <li>Journaling system</li>
+              </ul>
+              <a class="btn btn-outline" href="#contact">Enquire</a>
+            </article>
+
+            <article class="card reveal">
+              <h3>Trade Education</h3>
+              <p>Step-by-step breakdowns of setups, structure mapping, and risk management fundamentals.</p>
+              <ul class="list">
+                <li>Video lessons</li>
+                <li>Live breakdowns (when available)</li>
+                <li>Checklist & process</li>
+              </ul>
+              <a class="btn btn-ghost" href="#videos">Watch videos</a>
+            </article>
+          </div>
+
+          <div class="how reveal">
+            <h3>How it works</h3>
+            <div class="grid three">
+              <div class="mini">
+                <b>1) Message</b>
+                <span>Tell me your experience level and goal.</span>
+              </div>
+              <div class="mini">
+                <b>2) Plan</b>
+                <span>We choose VIP, mentorship, or both.</span>
+              </div>
+              <div class="mini">
+                <b>3) Execute</b>
+                <span>Trade the plan with discipline and feedback.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="charts" aria-labelledby="chartsTitle">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title reveal" id="chartsTitle">Charts & Analysis</h2>
+            <p class="section-subtitle reveal">A few examples of structure, entries, and management.</p>
+          </header>
+
+          <div class="grid three">
+            <figure class="media-card reveal">
+              <img src="./assets/chart-1.jpg" alt="Trade setup chart example 1" loading="lazy" />
+              <figcaption>
+                <b>Structure + Entry</b>
+                <span>Clean levels, clear invalidation.</span>
+              </figcaption>
+            </figure>
+            <figure class="media-card reveal">
+              <img src="./assets/chart-2.jpg" alt="Trade setup chart example 2" loading="lazy" />
+              <figcaption>
+                <b>Liquidity Sweep</b>
+                <span>Wait for confirmation, then execute.</span>
+              </figcaption>
+            </figure>
+            <figure class="media-card reveal">
+              <img src="./assets/chart-3.jpg" alt="Trade setup chart example 3" loading="lazy" />
+              <figcaption>
+                <b>Trade Management</b>
+                <span>Protect capital, let winners run.</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="cta reveal">
+            <div>
+              <h3>Want setups like these?</h3>
+              <p>Join VIP for structured signals + context.</p>
+            </div>
+            <a class="btn btn-primary" href="#contact">Join VIP</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="videos" aria-labelledby="videosTitle">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title reveal" id="videosTitle">Trade Videos</h2>
+            <p class="section-subtitle reveal">Recorded breakdowns of setups and decision-making.</p>
+          </header>
+
+          <div class="grid two">
+            <div class="video-card reveal">
+              <video controls preload="metadata" poster="./assets/hero-bg.jpg">
+                <source src="./assets/trade-video-1.mp4" type="video/mp4" />
+              </video>
+              <div class="video-meta">
+                <b>Setup Breakdown #1</b>
+                <span>Structure → entry trigger → management</span>
+              </div>
+            </div>
+
+            <div class="video-card reveal">
+              <video controls preload="metadata" poster="./assets/hero-bg.jpg">
+                <source src="./assets/trade-video-2.mp4" type="video/mp4" />
+              </video>
+              <div class="video-meta">
+                <b>Setup Breakdown #2</b>
+                <span>Patience, confirmation, execution</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="testimonials" aria-labelledby="reviewsTitle">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title reveal" id="reviewsTitle">Testimonials</h2>
+            <p class="section-subtitle reveal">Real feedback from traders in the community.</p>
+          </header>
+
+          <div class="grid three">
+            <article class="quote reveal">
+              <div class="stars" aria-label="5 star rating">★★★★★</div>
+              <p>“Clear, no-fluff guidance. The structure mapping alone changed my entries.”</p>
+              <div class="who"><b>Tariro</b><span>VIP Member</span></div>
+            </article>
+            <article class="quote reveal">
+              <div class="stars" aria-label="5 star rating">★★★★★</div>
+              <p>“The process is strict—but it works. My discipline and risk control improved fast.”</p>
+              <div class="who"><b>Tawanda</b><span>Mentorship</span></div>
+            </article>
+            <article class="quote reveal">
+              <div class="stars" aria-label="5 star rating">★★★★★</div>
+              <p>“Setups come with context. You understand the ‘why’ and not just entries.”</p>
+              <div class="who"><b>Rudo</b><span>VIP Member</span></div>
+            </article>
+          </div>
+
+          <div class="stats-band reveal" role="list">
+            <div class="stat" role="listitem"><div class="stat-number">50+</div><div class="stat-label">Traders mentored</div></div>
+            <div class="stat" role="listitem"><div class="stat-number">PA</div><div class="stat-label">Price action focus</div></div>
+            <div class="stat" role="listitem"><div class="stat-number">ZW</div><div class="stat-label">Harare-based</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faqs" aria-labelledby="faqsTitle">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title reveal" id="faqsTitle">FAQs</h2>
+            <p class="section-subtitle reveal">Quick answers before you reach out.</p>
+          </header>
+
+          <div class="accordion reveal" id="faqAccordion">
+            <details class="faq" open>
+              <summary>What markets do you trade?</summary>
+              <p>Forex, focusing on clean structure and price action setups.</p>
+            </details>
+            <details class="faq">
+              <summary>Do you guarantee profits?</summary>
+              <p>No. Trading has risk. The goal is a repeatable process and strong risk management.</p>
+            </details>
+            <details class="faq">
+              <summary>How do I join VIP or mentorship?</summary>
+              <p>Message on WhatsApp and I’ll send current options, pricing, and onboarding steps.</p>
+            </details>
+            <details class="faq">
+              <summary>Is this suitable for beginners?</summary>
+              <p>Yes—if you’re ready to learn structure, practice, and follow rules consistently.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact" aria-labelledby="contactTitle">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title reveal" id="contactTitle">Contact</h2>
+            <p class="section-subtitle reveal">Fastest response is WhatsApp.</p>
+          </header>
+
+          <div class="grid two">
+            <div class="card reveal">
+              <h3>Direct</h3>
+              <p class="muted">Message with your experience level and what you want (VIP / mentorship / both).</p>
+              <div class="contact-list">
+                <a class="contact-item" id="waDirect" href="#">
+                  <span>WhatsApp</span>
+                  <b>+263 71 544 3409</b>
+                </a>
+                <a class="contact-item" href="mailto:savagefx@example.com">
+                  <span>Email</span>
+                  <b>savagefx@example.com</b>
+                </a>
+                <div class="contact-item" role="note">
+                  <span>Location</span>
+                  <b>Harare, Zimbabwe</b>
+                </div>
+              </div>
+            </div>
+
+            <form class="card premium reveal" id="contactForm">
+              <h3>Send a message</h3>
+              <div class="form-grid">
+                <label>
+                  <span>Name</span>
+                  <input name="name" autocomplete="name" placeholder="Your name" required />
+                </label>
+                <label>
+                  <span>Email (optional)</span>
+                  <input name="email" autocomplete="email" placeholder="you@example.com" />
+                </label>
+                <label class="full">
+                  <span>Subject</span>
+                  <select name="subject" required>
+                    <option value="VIP">VIP Signals</option>
+                    <option value="Mentorship">Mentorship</option>
+                    <option value="Both">VIP + Mentorship</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+                <label class="full">
+                  <span>Message</span>
+                  <textarea name="message" rows="5" placeholder="Tell me your goal and experience level…" required></textarea>
+                </label>
+              </div>
+              <button class="btn btn-primary" type="submit">Send via WhatsApp</button>
+              <p class="fineprint">No backend needed—this opens WhatsApp with a pre-filled message.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <div class="footer-brand">SavageFX <span class="muted">#Zvichipera</span></div>
+          <div class="muted">Price action • Structure • Execution</div>
+        </div>
+        <div class="footer-links">
+          <a href="#services">Services</a>
+          <a href="#charts">Charts</a>
+          <a href="#faqs">FAQs</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="muted">© <span id="year"></span> SavageFX. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <a class="wa-float" id="waFloat" href="#" aria-label="Chat on WhatsApp">
+      <span aria-hidden="true">✦</span>
+      <span class="wa-text">WhatsApp</span>
+    </a>
+
+    <script src="./main.js" defer></script>
   </body>
 </html>
