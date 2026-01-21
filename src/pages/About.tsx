@@ -3,7 +3,6 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { MapPin, Calendar, Award, ArrowRight } from "lucide-react";
-import traderPortrait from "@/assets/trader-portrait.jpg";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -68,25 +67,26 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="aspect-[3/4] rounded-3xl overflow-hidden relative">
-                <img
-                  src={traderPortrait}
-                  alt="SavageFX - Professional Trader"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+              <div className="aspect-[3/4] rounded-3xl bg-gradient-to-br from-gold/10 via-gold/5 to-transparent border border-gold/20 flex flex-col items-center justify-center p-8 relative overflow-hidden">
+                {/* Background pattern */}
+                <div className="absolute inset-0 opacity-10" style={{
+                  backgroundImage: `linear-gradient(hsl(var(--gold)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--gold)) 1px, transparent 1px)`,
+                  backgroundSize: '40px 40px'
+                }} />
+                
+                {/* Content */}
+                <div className="relative z-10 text-center">
+                  <div className="w-32 h-32 rounded-full bg-gradient-gold flex items-center justify-center mx-auto mb-6">
+                    <span className="text-5xl font-bold text-white">SFX</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground mb-2">SavageFX</h3>
+                  <p className="text-muted-foreground mb-4">Professional Forex Trader</p>
+                  <span className="text-gold font-bold text-xl">#Zvichipera</span>
+                </div>
+                
+                {/* Glow effect */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gold/20 rounded-full blur-[100px]" />
               </div>
-              
-              {/* Floating card */}
-              <motion.div 
-                className="absolute -bottom-6 -right-6 lg:right-8 p-5 rounded-2xl glass border border-white/10"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-              >
-                <span className="text-gold font-bold text-xl">#Zvichipera</span>
-              </motion.div>
 
               {/* Decorative elements */}
               <div className="absolute -top-4 -left-4 w-32 h-32 rounded-3xl border border-gold/20" />
