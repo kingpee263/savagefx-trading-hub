@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, Users, Award, ArrowRight, Play, ChevronDown, Zap, Target, Shield, BarChart3 } from "lucide-react";
+import { TrendingUp, Users, Award, ArrowRight, Play, ChevronDown, Zap, Target, Shield, BarChart3, MapPin } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import heroBg from "@/assets/hero-bg.jpg";
-import traderPortrait from "@/assets/trader-portrait.jpg";
 
 const Index = () => {
   return (
@@ -136,31 +135,33 @@ const Index = () => {
         
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Image side */}
+            {/* Visual side - trading stats */}
             <div className="relative">
-              <div className="aspect-[4/5] rounded-3xl overflow-hidden relative">
-                <img
-                  src={traderPortrait}
-                  alt="SavageFX Trader"
-                  className="w-full h-full object-cover"
-                />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-              </div>
-              
-              {/* Floating card */}
-              <div className="absolute -bottom-6 -right-6 lg:right-8 p-4 rounded-2xl glass border border-white/10">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-gold flex items-center justify-center">
-                    <MapPin size={18} className="text-white" />
+              <div className="aspect-[4/5] rounded-3xl bg-gradient-to-br from-gold/10 via-gold/5 to-transparent border border-gold/20 flex flex-col items-center justify-center p-8 relative overflow-hidden">
+                {/* Background pattern */}
+                <div className="absolute inset-0 opacity-10" style={{
+                  backgroundImage: `linear-gradient(hsl(var(--gold)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--gold)) 1px, transparent 1px)`,
+                  backgroundSize: '40px 40px'
+                }} />
+                
+                {/* Content */}
+                <div className="relative z-10 text-center">
+                  <div className="w-24 h-24 rounded-full bg-gradient-gold flex items-center justify-center mx-auto mb-6">
+                    <span className="text-4xl font-bold text-white">SFX</span>
                   </div>
-                  <div>
-                    <p className="font-semibold text-foreground">Harare</p>
-                    <p className="text-xs text-muted-foreground">Zimbabwe 🇿🇼</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-2">SavageFX</h3>
+                  <p className="text-muted-foreground mb-6">Professional Forex Trader</p>
+                  
+                  <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                    <MapPin size={16} className="text-gold" />
+                    <span>Harare, Zimbabwe 🇿🇼</span>
                   </div>
                 </div>
+                
+                {/* Glow effect */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gold/20 rounded-full blur-[100px]" />
               </div>
-
+              
               {/* Decorative element */}
               <div className="absolute -top-4 -left-4 w-24 h-24 rounded-3xl border border-gold/20" />
             </div>
@@ -313,7 +314,5 @@ const Index = () => {
   );
 };
 
-// Missing import
-import { MapPin } from "lucide-react";
 
 export default Index;
